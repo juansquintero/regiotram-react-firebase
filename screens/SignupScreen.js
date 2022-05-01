@@ -22,11 +22,27 @@ export const SignupScreen = ({ navigation }) => {
   } = useTogglePasswordVisibility();
 
   const handleSignup = async values => {
-    const { email, password } = values;
+    const { email, password, name, number } = values;
 
-    createUserWithEmailAndPassword(auth, email, password).catch(error =>
-      setErrorState(error.message)
-    );
+    //createUserWithEmailAndPassword(auth, email, password).catch(error =>
+      //setErrorState(error.message)
+    //);
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredentials) => {
+        const user = userCredentials.user
+        console.log('Usuario registrado', user.email, user.uid)
+        setDoc(doc(db, 'users', user.uid), {
+          name: name.value,
+          mail: email.value,
+          number: number.value,
+        })
+      })
+      .catch((error) => alert(error.message))
+    navigation.reset({
+      index: 0,
+      routes: [{ name: 'Dashboard' }],
+    })
+  }
   };
 
   return (
