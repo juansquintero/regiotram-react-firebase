@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { Text, StyleSheet } from 'react-native';
 import { Formik } from 'formik';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { setDoc, doc} from 'firebase/firestore'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-
 import { View, TextInput, Logo, Button, FormErrorMessage } from '../components';
-import { Images, Colors, auth } from '../config';
+import { Images, Colors, auth, db } from '../config';
 import { useTogglePasswordVisibility } from '../hooks';
 import { signupValidationSchema } from '../utils';
+
 
 export const SignupScreen = ({ navigation }) => {
   const [errorState, setErrorState] = useState('');
@@ -32,17 +33,12 @@ export const SignupScreen = ({ navigation }) => {
         const user = userCredentials.user
         console.log('Usuario registrado', user.email, user.uid)
         setDoc(doc(db, 'users', user.uid), {
-          name: name.value,
-          mail: email.value,
-          number: number.value,
+          name: name,
+          mail: email,
+          number: number,
         })
       })
-      .catch((error) => alert(error.message))
-    navigation.reset({
-      index: 0,
-      routes: [{ name: 'Dashboard' }],
-    })
-  }
+      .catch((error) => setErrorState(error.message))
   };
 
   return (
@@ -56,9 +52,12 @@ export const SignupScreen = ({ navigation }) => {
         {/* Formik Wrapper */}
         <Formik
           initialValues={{
+            name: '',
+            number: '',
             email: '',
             password: '',
             confirmPassword: ''
+
           }}
           validationSchema={signupValidationSchema}
           onSubmit={values => handleSignup(values)}
@@ -73,6 +72,31 @@ export const SignupScreen = ({ navigation }) => {
           }) => (
             <>
               {/* Input fields */}
+              <TextInput
+                name="name"
+                label="Nombre"
+                placeholder="Ingrese el nombre"
+                returnKeyType="next"
+                value={values.name}
+                onChangeText={handleChange('name')}
+                onBlur={handleBlur('name')}
+              />
+              <FormErrorMessage error={errors.name} visible={touched.name} />
+              <TextInput
+                name="number"
+                label="Numero telefonico"
+                returnKeyType="next"
+                leftIconName='telephone'
+                placeholder="Ingrese el numero telefonico"
+                value={values.number}
+                autoCapitalize="none"
+                autoCompleteType="tel"
+                textContentType="telephoneNumber"
+                keyboardType="phone-pad"
+                onChangeText={handleChange('number')}
+                onBlur={handleBlur('number')}
+              />
+              <FormErrorMessage error={errors.number} visible={touched.number} />
               <TextInput
                 name='email'
                 leftIconName='email'
