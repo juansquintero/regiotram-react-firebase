@@ -2616,6 +2616,13 @@
   "resolved" "https://registry.npmjs.org/copy-descriptor/-/copy-descriptor-0.1.1.tgz"
   "version" "0.1.1"
 
+"copy-dir@^0.4.0":
+  "integrity" "sha512-mIefrD97nE1XX2th570tR5UQvW6/92czEPGe+oTtrxPAJl+KOKLpzcRa+e38WEpmt/IUN1n65KvRMzPblR+fDQ=="
+  "resolved" "https://registry.npmjs.org/copy-dir/-/copy-dir-0.4.0.tgz"
+  "version" "0.4.0"
+  dependencies:
+    "mkdir-p" "~0.0.4"
+
 "core-js-compat@^3.16.0", "core-js-compat@^3.16.2":
   "integrity" "sha512-4zP6/y0a2RTHN5bRGT7PTq9lVt3WzvffTNjqnTKsXhkAYNDTkdCLOIfAdOLcQ/7TDdyRj3c+NeHe1NmF1eDScw=="
   "resolved" "https://registry.npmjs.org/core-js-compat/-/core-js-compat-3.18.3.tgz"
@@ -4586,6 +4593,11 @@
     "for-in" "^1.0.2"
     "is-extendable" "^1.0.1"
 
+"mkdir-p@~0.0.4":
+  "integrity" "sha1-JMXb4m2jqZ7xWKHu+aXC3Z3laDw="
+  "resolved" "https://registry.npmjs.org/mkdir-p/-/mkdir-p-0.0.7.tgz"
+  "version" "0.0.7"
+
 "mkdirp@^0.5.1":
   "integrity" "sha512-NKmAlESf6jMGym1++R0Ra7wvhV+wFW63FaSOFPwRahvea0gMUcGUhVeAg/0BC0wiv9ih5NYPB1Wn1UEI1/L+xQ=="
   "resolved" "https://registry.npmjs.org/mkdirp/-/mkdirp-0.5.5.tgz"
@@ -5029,6 +5041,13 @@
   "integrity" "sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag=="
   "resolved" "https://registry.npmjs.org/process-nextick-args/-/process-nextick-args-2.0.1.tgz"
   "version" "2.0.1"
+
+"projecttreeview@^1.1.0":
+  "integrity" "sha512-avFpEXvhtI0GbYmqqy09zglgUi9uv+7wwQsMwt6x2LnJERvACkpkJf8xZN7cKaUfQi1edhcREjIE0NltQuEEkw=="
+  "resolved" "https://registry.npmjs.org/projecttreeview/-/projecttreeview-1.1.0.tgz"
+  "version" "1.1.0"
+  dependencies:
+    "copy-dir" "^0.4.0"
 
 "promise-polyfill@8.1.3":
   "integrity" "sha512-MG5r82wBzh7pSKDRa9y+vllNHz3e3d4CNj1PQE4BQYxLme0gKYYBm9YENq+UkEikyZ0XbiGWxYlVw3Rl9O/U8g=="
