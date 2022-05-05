@@ -109,8 +109,8 @@ export const LoginScreen = ({ navigation }) => {
       </View>
 
       {/* App info footer */}
-      <View style={styles.footer}>
-        <Text style={styles.footerText}>
+      <View style={styles.footer}>        
+        <Text style={styles.footerText}>          
           UdeC - Regiotram
         </Text>
       </View>
@@ -135,6 +135,7 @@ const styles = StyleSheet.create({
   },
   footer: {
     backgroundColor: Colors.white,
+    paddingTop: 10,
     paddingHorizontal: 12,
     paddingBottom: 48,
     alignItems: 'center'
