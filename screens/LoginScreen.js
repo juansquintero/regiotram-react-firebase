@@ -27,7 +27,7 @@ export const LoginScreen = ({ navigation }) => {
           {/* LogoContainer: consits app logo and screen title */}
           <View style={styles.logoContainer}>
             <Logo uri={Images.logo} />
-            <Text style={styles.screenTitle}>Welcome back!</Text>
+            <Text style={styles.screenTitle}>!Bienvenido de vuelta!</Text>
           </View>
           <Formik
             initialValues={{
@@ -50,7 +50,7 @@ export const LoginScreen = ({ navigation }) => {
                 <TextInput
                   name='email'
                   leftIconName='email'
-                  placeholder='Enter email'
+                  placeholder='Ingrese su email'
                   autoCapitalize='none'
                   keyboardType='email-address'
                   textContentType='emailAddress'
@@ -66,7 +66,7 @@ export const LoginScreen = ({ navigation }) => {
                 <TextInput
                   name='password'
                   leftIconName='key-variant'
-                  placeholder='Enter password'
+                  placeholder='Ingrese su contraseña'
                   autoCapitalize='none'
                   autoCorrect={false}
                   secureTextEntry={passwordVisibility}
@@ -87,7 +87,7 @@ export const LoginScreen = ({ navigation }) => {
                 ) : null}
                 {/* Login button */}
                 <Button style={styles.button} onPress={handleSubmit}>
-                  <Text style={styles.buttonText}>Login</Text>
+                  <Text style={styles.buttonText}>Inciar Sesion</Text>
                 </Button>
               </>
             )}
@@ -96,13 +96,13 @@ export const LoginScreen = ({ navigation }) => {
           <Button
             style={styles.borderlessButtonContainer}
             borderless
-            title={'Create a new account?'}
+            title={'¿Crear una nueva cuenta?'}
             onPress={() => navigation.navigate('Signup')}
           />
           <Button
             style={styles.borderlessButtonContainer}
             borderless
-            title={'Forgot Password'}
+            title={'¿Olvido su contraseña?'}
             onPress={() => navigation.navigate('ForgotPassword')}
           />
         </KeyboardAwareScrollView>
@@ -111,7 +111,7 @@ export const LoginScreen = ({ navigation }) => {
       {/* App info footer */}
       <View style={styles.footer}>
         <Text style={styles.footerText}>
-          Expo Firebase Starter App (based on managed workflow)
+          UdeC - Regiotram
         </Text>
       </View>
     </>

@@ -23,7 +23,7 @@ export const SignupScreen = ({ navigation }) => {
   } = useTogglePasswordVisibility();
 
   const handleSignup = async values => {
-    const { email, password, name, number } = values;
+    const { email, password, name, number, rol, tickets } = values;
 
     //createUserWithEmailAndPassword(auth, email, password).catch(error =>
       //setErrorState(error.message)
@@ -36,6 +36,8 @@ export const SignupScreen = ({ navigation }) => {
           name: name,
           mail: email,
           number: number,
+          rol: 0,
+          tickets: 0,
         })
       })
       .catch((error) => setErrorState(error.message))
@@ -47,7 +49,7 @@ export const SignupScreen = ({ navigation }) => {
         {/* LogoContainer: consits app logo and screen title */}
         <View style={styles.logoContainer}>
           <Logo uri={Images.logo} />
-          <Text style={styles.screenTitle}>Create a new account!</Text>
+          <Text style={styles.screenTitle}>!Cree una cuenta nueva!</Text>
         </View>
         {/* Formik Wrapper */}
         <Formik
@@ -100,7 +102,7 @@ export const SignupScreen = ({ navigation }) => {
               <TextInput
                 name='email'
                 leftIconName='email'
-                placeholder='Enter email'
+                placeholder='Ingrese su email'
                 autoCapitalize='none'
                 keyboardType='email-address'
                 textContentType='emailAddress'
@@ -113,7 +115,7 @@ export const SignupScreen = ({ navigation }) => {
               <TextInput
                 name='password'
                 leftIconName='key-variant'
-                placeholder='Enter password'
+                placeholder='Ingrese una contraseña password'
                 autoCapitalize='none'
                 autoCorrect={false}
                 secureTextEntry={passwordVisibility}
@@ -131,7 +133,7 @@ export const SignupScreen = ({ navigation }) => {
               <TextInput
                 name='confirmPassword'
                 leftIconName='key-variant'
-                placeholder='Enter password'
+                placeholder='Confirme su contraseña'
                 autoCapitalize='none'
                 autoCorrect={false}
                 secureTextEntry={confirmPasswordVisibility}
@@ -152,7 +154,7 @@ export const SignupScreen = ({ navigation }) => {
               ) : null}
               {/* Signup button */}
               <Button style={styles.button} onPress={handleSubmit}>
-                <Text style={styles.buttonText}>Signup</Text>
+                <Text style={styles.buttonText}>Registrarse</Text>
               </Button>
             </>
           )}
@@ -161,7 +163,7 @@ export const SignupScreen = ({ navigation }) => {
         <Button
           style={styles.borderlessButtonContainer}
           borderless
-          title={'Already have an account?'}
+          title={'¿Ya tiene una cuenta?'}
           onPress={() => navigation.navigate('Login')}
         />
       </KeyboardAwareScrollView>
